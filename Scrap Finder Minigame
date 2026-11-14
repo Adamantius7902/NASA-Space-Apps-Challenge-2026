@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+#include <vector>
+ 
+void print_place(std::vector<std::vector<int>> map, int &place_no, std::vector<std::string> description, std::vector<std::string> equipment, std::vector<bool> &was_there, int &scrap, std::vector<int> scrap_value)
+{
+    std::cout << "You are currently at " << description[place_no] << std::endl;
+    if (was_there[place_no] == 0)
+    {
+        was_there[place_no] = 1;
+        std::cout << "Here, there is a " << equipment[place_no] << ", and you pick it up." << std::endl;
+        std::cout << "You gained " << scrap_value[place_no] << " scrap piece(s)!" << std::endl;
+        scrap = scrap + scrap_value[place_no];
+    }
+    else
+    {
+        std::cout << "There was a " << equipment[place_no] << " here, but you have already picked it up!" << std::endl;
+    }
+    
+    std::cout << "You have " << scrap << " out of 14 scrap pieces." << std::endl;
+    
+    std::cout << "From here, you could go to: " << std::endl;
+    
+    for (int i = 0; i < map[place_no].size(); i++)
+    {
+        std::cout << "  " << description[map[place_no][i]] << "(" << i << ")" << std::endl;
+    }
+    int input = 90;
+    
+    //std::cout << "Tick";
+    std::cin >> input; 
+    while (input > map[place_no].size())
+    {
+        std::cout << "Try again!" << std::endl;
+        std::cin >> input; 
+    }
+    
+    std::cout << std::endl << std::endl;
+    
+    place_no = map[place_no][input];
+    
+}
+
+
+int main()
+{
+    //define vectors
+    std::vector<std::vector<int>> map {{1, 2, 3},{0,2},{0,1},{0,4},{3,5,6},{4,6},{4,5,7},{6}};
+    std::vector<std::string> description {"where you crash landed.", "an LM Eagle Descent Stage", "a Passive Seismic Experiment Package, from Apollo 11", "Surveyor 5", "Ranger 8", "Ranger 6", "a Portable Life Support System", "a Torn Insulation Blanket"};
+    std::vector<std::string> equipment {"spaceship body part", "spaceship leg", "large, quirky scientific box", "rover solar panel", "rover science pod", "rover wheel", "rebreather", "insulation package"};
+    std::vector<bool> was_there {0,0,0,0,0,0,0,0};
+    std::vector<int> scrap_value {2,4,1,1,2,2,1,1};
+
+    
+    
+    int place_no = 0;
+    
+    bool finished = 0;
+    
+    int scrap = 0;
+    
+    //game
+    
+    
+    std::cout << "Welcome to the Scrap Moon Game!" << std::endl << "Your rocketship has crashed on the moon and so you need source scrap metal to build a new one to get back home!" << std::endl << "Use the text instructions to navigate your way around and collect the necessary equipment to rebuild your ship and get back home!";
+    
+    while (finished == 0)
+    {
+        print_place(map, place_no, description, equipment, was_there, scrap, scrap_value);
+        if (scrap == 14 && place_no == 0)
+        {
+            finished = 1;   
+        }
+    }
+    
+    std::cout << "Well done! You have finished fixing your space ship - now you can finally go back home!" << std::endl << "Thank you for playing this game!" << std::endl;
+    
+    return 0;
+}
