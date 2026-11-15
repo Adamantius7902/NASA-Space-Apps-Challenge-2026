@@ -1,0 +1,168 @@
+from time import sleep
+ans1 = 0
+ans2 = 0
+ans3 = 0
+
+print('Welcome to Scrap Moon Game')
+sleep(1)
+print ('Follow the instructions to escape from the moon to get into planet earth')
+sleep(2)
+print('look for 15 scraps to get back to home')
+sleep(3)
+print(' ')
+sleep(1)
+sleep(2)
+print('You wake up with your spacesuit stranded on the moon. Your spacecraft is now broken and it is your job to fix it. The only thing that is left is scraps of instruments and a probe which tells the diagnostics of the moon')
+print('1: Check diagnostics')
+print('2: Go on an adventure')
+decision = int(input())
+while decision != 1 and decision != 2:
+    print('put 1 or 2')
+    decision = int(input())
+
+if decision == 1:
+    print('Diagnostics:')
+    print('Seismometer: ----------')
+    print('Magnetic field strength: 1.6N/Kg')
+    sleep(3)
+    print('you collected 5 loose scraps from the probe 5 out of 5 scraps collected')
+    
+if decision == 2: 
+    print('you enter a crater that seems very deep and find a sillhouette of a weird structure ')
+    sleep(2)
+    print('Press enter to go down')
+    action1 = input()
+    print('you found a space craft... but not any old spacecraft- It is the The Apollo 11 Lunar Module “Eagle”  ')
+    print('---press enter to access info---')
+    action2 = input()
+    sleep(2)
+    print('Model name:The Apollo 11 Lunar Module “Eagle”')
+    print('Manufacturer: Grumman Aircraft Engineering Corporation')
+    print('Launch Mass: 33,294.5 lbs (approx. 15,100 kg)')
+    print('Mission: Apollo 11 ')
+    print('Crew: Neil Armstrong (Commander) and Buzz Aldrin (Lunar Module Pilot)')
+    print('Landing Date & Time: July 20, 1969')
+    sleep(10)
+    print('--Enter to collect scraps--')
+    action3 = input()
+    print('You found 5 scraps out of 15')
+sleep(2)
+print('You got your first scraps and you are looking for more')
+print ('WHAT DO YOU DO?')
+print('1: go to the Surveyor 1')
+print('2: go to the Chandrayaan-3')
+decision2 = int(input())
+while decision2 != 1 and decision2 != 2:
+    print('put 1 or 2')
+    decision2 = int(input())
+
+if decision2 == 1:
+    sleep(2)
+    print('You found a junkpile of many different things')
+    sleep(1)
+    print('At the corner of your eye you see a structure... it is the Surveyor 1!')
+    sleep(2)
+    print('---Press enter to access fact file---')
+    action3 = input()
+    print('Surveyor fact file:')
+    sleep(2)
+    print('Builder - managed by NASA Jet Propulsion Laboratory')
+    print('Launch Date: May 30, 1966')
+    print('Landing Date: June 2, 1966')
+    print('Mass: 2,194 lb at launch; 649 lb (292 kg) at landing.')
+    print('Achievements: First U.S. Soft Landing')
+    print('enter to take scraps')
+    print('After your discovery you pick up 10 out of 15 scraps')
+    sleep(1)
+    print('You then start walking to find more scraps and found a structure in the south pole')
+    print('The Chandrayann 3')
+    print('press enter for fact file')
+    action4 = input()
+    print('Chandrayann 3 fact file:')
+    sleep(2)
+    print('Operator: Indian Space Research Organisation')
+    print('Launch Date: July 14, 2023')
+    print('Landing Date: August 23, 2023')
+    print('Milestone: First to land near the lunar south pole')
+    print('press enter to collect scraps')
+    action6 = input()
+    print('You finally got all the scraps')
+if decision2 == 2:
+    sleep(1)
+    print('You then start walking to find more scraps and found a structure in the south pole')
+    print('The Chandrayann 3')
+    print('press enter for fact file')
+    action4 = input()
+    print('Chandrayann 3 fact file:')
+    sleep(2)
+    print('Operator: Indian Space Research Organisation')
+    print('Launch Date: July 14, 2023')
+    print('Landing Date: August 23, 2023')
+    print('Milestone: First to land near the lunar south pole')
+    print('press enter to collect scraps')
+    action5 = input()
+    print('you collected 10 out of 15 scraps')
+    sleep(2)
+    print('You found a junkpile of many different things')
+    sleep(1)
+    print('At the corner of your eye you see a structure... it is the Surveyor 1!')
+    sleep(2)
+    print('---Press enter to access fact file---')
+    action3 = input()
+    print('Surveyor fact file:')
+    sleep(2)
+    print('Builder - managed by NASA Jet Propulsion Laboratory')
+    print('Launch Date: May 30, 1966')
+    print('Landing Date: June 2, 1966')
+    print('Mass: 2,194 lb at launch; 649 lb (292 kg) at landing.')
+    print('Achievements: First U.S. Soft Landing')
+    print('enter to take scraps')
+    action7 = input()
+    print('After your discovery you pick up all the scraps')
+    sleep(2)
+
+print('Finally you got all the scraps. type 3 to fix your spacecraft')
+action8 = int(input())
+while action8 != 3:
+    print('Type 3!!')
+    action8 = int(input())
+
+if action8 == 3:
+    sleep(3)
+    print('you finally finished the spacecraft. Welldone')
+    print('Would you like to be quizzed?')
+    quiz = input().lower()
+    if quiz == 'yes':
+        
+        try:
+            ans1 = int(input('Q1: What year was the Lunar Eagle launched? '))
+        except ValueError:
+            print('input a number')
+        if ans1 == 1969:
+            print('that is correct')
+            score += 1
+        else: 
+            print('Wrong')
+        print('Q2: Which spacecraft landed in the south pole')
+        ans2 = input()
+        if ans2 == "Chandrayaan":
+            print('that is correct')
+            score +=1
+        else: 
+            print('Wrong')
+        print('Q3: How much did the voyager 1 weigh after landing (lb)')
+        ans3 = input()
+        try:
+            answer = int(input('Q3: How much did the voyager 1 weigh after landing (lb)'))
+        except ValueError:
+            print('input a number')
+        if ans3 == '649':
+            print('that is correct')
+            score += 1
+        else:
+            print('Wrong')
+
+        print(f'Well done you got {score} out of 3')
+           
+    else:
+        print('Thank you for playing our game')
